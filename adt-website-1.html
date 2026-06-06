@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="google-site-verification" content="j7cpL4Z6dU4Iwn3a6DfFSkiJQEA_rQjgzZc5QbQLzCo" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alpha Development Team (ADT) — Borno State, Nigeria</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --green: #1a6b3c;
+  --green-light: #2d9057;
+  --green-pale: #e8f5ee;
+  --gold: #c9962a;
+  --gold-light: #f0c04a;
+  --dark: #0f1f14;
+  --text: #1c2e22;
+  --muted: #5a7264;
+  --border: #cde0d4;
+  --white: #ffffff;
+  --cream: #f7faf8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:70px;transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(26,107,60,.1);}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;}
+.nav-logo-icon{width:42px;height:42px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--green);}
+.nav-brand span{display:block;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:400;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;}
+.nav-links{display:flex;gap:2px;align-items:center;}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--text);text-decoration:none;padding:6px 14px;border-radius:6px;transition:all .2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green);}
+.nav-cta{background:var(--green);color:#fff!important;padding:8px 20px!important;border-radius:8px!important;}
+.nav-cta:hover{background:var(--green-light)!important;color:#fff!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--green);border-radius:2px;transition:.3s;}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);z-index:998;padding:16px 5%;flex-direction:column;gap:4px;}
+.mobile-menu a{font-size:.95rem;font-weight:500;padding:12px 16px;border-radius:8px;color:var(--text);text-decoration:none;cursor:pointer;transition:.2s;}
+.mobile-menu a:hover{background:var(--green-pale);color:var(--green);}
+.mobile-menu.open{display:flex;}
+
+/* ── PAGES ── */
+.page{display:none;padding-top:70px;}
+.page.active{display:block;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--dark) 0%,#0e2f1a 50%,#153d22 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:0!important;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232d9057' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 5%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(45,144,87,.2);border:1px solid rgba(45,144,87,.4);border-radius:50px;padding:6px 16px;margin-bottom:28px;}
+.hero-badge span{font-size:.8rem;color:#7ecda0;font-weight:500;letter-spacing:.05em;text-transform:uppercase;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold-light);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;line-height:1.15;margin-bottom:24px;}
+.hero h1 em{font-style:normal;color:var(--gold-light);}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:40px;max-width:480px;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{background:var(--green-light);color:#fff;padding:14px 32px;border-radius:10px;font-size:.95rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:.2s;display:inline-block;}
+.btn-primary:hover{background:#3aab6a;transform:translateY(-1px);}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:10px;font-size:.95rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.3);cursor:pointer;transition:.2s;display:inline-block;}
+.btn-outline:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.05);}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+.hero-stat{text-align:center;padding:24px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;}
+.hero-stat .num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--gold-light);font-weight:700;}
+.hero-stat .label{font-size:.8rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+.hero-visual{display:flex;flex-direction:column;gap:16px;}
+.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;backdrop-filter:blur(8px);animation:floatIn .8s ease both;}
+.hero-card:nth-child(2){animation-delay:.15s;margin-left:32px;}
+.hero-card:nth-child(3){animation-delay:.3s;}
+@keyframes floatIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-card-icon{width:40px;height:40px;background:rgba(45,144,87,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1.3rem;}
+.hero-card h4{font-size:.95rem;font-weight:600;color:#fff;margin-bottom:6px;}
+.hero-card p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.5;}
+
+/* ── SECTIONS ── */
+.section{padding:100px 5%;}
+.section-alt{background:var(--cream);}
+.container{max-width:1200px;margin:0 auto;}
+.section-tag{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--green);margin-bottom:12px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--dark);margin-bottom:20px;line-height:1.2;}
+.section-title em{font-style:normal;color:var(--green);}
+.section-sub{font-size:1.05rem;color:var(--muted);line-height:1.7;max-width:600px;}
+.section-header{margin-bottom:60px;}
+.section-header.center{text-align:center;}
+.section-header.center .section-sub{margin:0 auto;}
+.divider{width:48px;height:3px;background:var(--green);border-radius:2px;margin-bottom:20px;}
+.divider.center{margin:0 auto 20px;}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-stack{position:relative;height:480px;}
+.about-img-bg{position:absolute;top:0;left:0;right:40px;bottom:40px;background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.about-img-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3C/g%3E%3C/svg%3E");}
+.about-img-icon{font-size:6rem;filter:drop-shadow(0 4px 20px rgba(0,0,0,.2));}
+.about-img-card{position:absolute;bottom:0;right:0;background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px 24px;box-shadow:0 8px 40px rgba(0,0,0,.1);min-width:200px;}
+.about-img-card .label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;}
+.about-img-card .val{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--green);}
+.about-img-card .sub{font-size:.8rem;color:var(--muted);margin-top:2px;}
+.about-values{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.value-item{display:flex;align-items:flex-start;gap:12px;}
+.value-icon{width:36px;height:36px;min-width:36px;background:var(--green-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.value-item h5{font-size:.9rem;font-weight:600;color:var(--dark);margin-bottom:2px;}
+.value-item p{font-size:.8rem;color:var(--muted);line-height:1.5;}
+
+/* ── PROGRAMS ── */
+.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.prog-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px;transition:.3s;cursor:default;position:relative;overflow:hidden;}
+.prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:.3s;}
+.prog-card:hover{box-shadow:0 12px 40px rgba(26,107,60,.1);transform:translateY(-4px);}
+.prog-card:hover::before{transform:scaleX(1);}
+.prog-icon{width:56px;height:56px;background:var(--green-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:20px;}
+.prog-card h3{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--dark);margin-bottom:12px;}
+.prog-card p{font-size:.875rem;color:var(--muted);line-height:1.7;}
+.prog-tag{display:inline-block;margin-top:16px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green);background:var(--green-pale);padding:4px 12px;border-radius:50px;}
+
+/* ── TEAM ── */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.3s;}
+.team-card:hover{box-shadow:0 12px 40px rgba(26,107,60,.12);transform:translateY(-4px);}
+.team-avatar{height:180px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,var(--green-pale),var(--border));}
+.team-info{padding:20px;}
+.team-info h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--dark);margin-bottom:4px;}
+.team-info .role{font-size:.8rem;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.team-info p{font-size:.8rem;color:var(--muted);line-height:1.5;}
+
+/* ── GALLERY ── */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.gallery-item{border-radius:12px;overflow:hidden;background:var(--green-pale);border:1px solid var(--border);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;transition:.3s;cursor:pointer;}
+.gallery-item:hover{transform:scale(1.02);box-shadow:0 8px 30px rgba(26,107,60,.15);}
+.gallery-item.tall{grid-row:span 2;}
+.gallery-item .g-icon{font-size:2.5rem;}
+.gallery-item .g-label{font-size:.8rem;font-weight:500;color:var(--green);}
+
+/* ── PARTNERS ── */
+.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.partner-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 20px;text-align:center;transition:.3s;}
+.partner-card:hover{box-shadow:0 6px 24px rgba(26,107,60,.1);border-color:var(--green);}
+.partner-logo{font-size:2.5rem;margin-bottom:12px;}
+.partner-name{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:4px;}
+.partner-type{font-size:.75rem;color:var(--muted);}
+
+/* ── NEWS ── */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.news-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:.3s;}
+.news-card:hover{box-shadow:0 12px 40px rgba(26,107,60,.1);transform:translateY(-4px);}
+.news-img{height:180px;background:linear-gradient(135deg,var(--green),var(--green-light));display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.news-body{padding:24px;}
+.news-date{font-size:.75rem;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.news-category{display:inline-block;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green);background:var(--green-pale);padding:3px 10px;border-radius:50px;margin-bottom:10px;}
+.news-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--dark);margin-bottom:10px;line-height:1.4;}
+.news-card p{font-size:.85rem;color:var(--muted);line-height:1.6;}
+.read-more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.85rem;font-weight:600;color:var(--green);text-decoration:none;cursor:pointer;}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--dark);margin-bottom:16px;}
+.contact-info p{color:var(--muted);line-height:1.7;margin-bottom:32px;}
+.contact-items{display:flex;flex-direction:column;gap:20px;}
+.contact-item{display:flex;align-items:flex-start;gap:16px;}
+.contact-item-icon{width:44px;height:44px;min-width:44px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.contact-item h5{font-size:.85rem;font-weight:600;color:var(--dark);margin-bottom:2px;}
+.contact-item p{font-size:.85rem;color:var(--muted);}
+.contact-form{background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:.8rem;font-weight:600;color:var(--dark);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text);background:#fff;transition:.2s;outline:none;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,107,60,.08);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-submit{width:100%;padding:14px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:.2s;}
+.form-submit:hover{background:var(--green-light);}
+.form-success{display:none;text-align:center;padding:20px;color:var(--green);font-weight:600;}
+
+/* ── MISSION BANNER ── */
+.mission-banner{background:var(--green);padding:80px 5%;text-align:center;}
+.mission-banner .section-tag{color:var(--gold-light);}
+.mission-banner h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:#fff;margin-bottom:20px;}
+.mission-banner p{color:rgba(255,255,255,.75);font-size:1.05rem;max-width:700px;margin:0 auto 40px;}
+.mission-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);color:#fff;padding:80px 5% 40px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.footer-brand-icon{width:40px;height:40px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.footer-brand-icon svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;}
+.footer-about p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:24px;}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{width:36px;height:36px;background:rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;text-decoration:none;transition:.2s;cursor:pointer;}
+.footer-social a:hover{background:var(--green);}
+.footer-col h5{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{font-size:.875rem;color:rgba(255,255,255,.6);text-decoration:none;transition:.2s;cursor:pointer;}
+.footer-col ul li a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:.8rem;color:rgba(255,255,255,.35);}
+.footer-badges{display:flex;gap:8px;}
+.badge{font-size:.7rem;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-content,.about-grid,.contact-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-visual{display:none;}
+  .programs-grid{grid-template-columns:repeat(2,1fr);}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .partners-grid{grid-template-columns:repeat(2,1fr);}
+  .news-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .programs-grid,.team-grid,.gallery-grid,.news-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .about-values{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+
+/* ── PAGE TRANSITIONS ── */
+.page{animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="nav-brand">ADT <span>Alpha Development Team</span></div>
+  </a>
+  <div class="nav-links">
+    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
+    <a onclick="showPage('about')" id="nav-about">About</a>
+    <a onclick="showPage('programs')" id="nav-programs">Programs</a>
+    <a onclick="showPage('team')" id="nav-team">Team</a>
+    <a onclick="showPage('gallery')" id="nav-gallery">Gallery</a>
+    <a onclick="showPage('partners')" id="nav-partners">Partners</a>
+    <a onclick="showPage('news')" id="nav-news">News</a>
+    <a onclick="showPage('contact')" class="nav-cta" id="nav-contact">Contact Us</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');closeMenu()">Home</a>
+  <a onclick="showPage('about');closeMenu()">About</a>
+  <a onclick="showPage('programs');closeMenu()">Programs</a>
+  <a onclick="showPage('team');closeMenu()">Team</a>
+  <a onclick="showPage('gallery');closeMenu()">Gallery</a>
+  <a onclick="showPage('partners');closeMenu()">Partners</a>
+  <a onclick="showPage('news');closeMenu()">News</a>
+  <a onclick="showPage('contact');closeMenu()">Contact Us</a>
+</div>
+
+<!-- ══════════ PAGE: HOME ══════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div>
+        <div class="hero-badge"><span>Borno State, Nigeria · Since 2020</span></div>
+        <h1>Empowering Communities, <em>Transforming Lives</em></h1>
+        <p>Alpha Development Team (ADT) is a SMEDAN-registered community-based organisation driving education, digital literacy, skills acquisition, and environmental conservation across Borno State.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('programs')">Our Programs</button>
+          <button class="btn-outline" onclick="showPage('about')">Learn More</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">500+</div><div class="label">Beneficiaries</div></div>
+          <div class="hero-stat"><div class="num">6+</div><div class="label">Active Programs</div></div>
+          <div class="hero-stat"><div class="num">3+</div><div class="label">Partner Orgs</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-icon">🌱</div>
+          <h4>Great Green Wall Initiative</h4>
+          <p>Partnering with Borno State Agency on afforestation and climate resilience programs.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">💻</div>
+          <h4>Digital Literacy</h4>
+          <p>Building 21st-century skills for youth and displaced communities in Borno State.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🎓</div>
+          <h4>Education &amp; Skills</h4>
+          <p>Empowering individuals with vocational training, entrepreneurship, and academic support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Focus Areas (on home) -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="divider center"></div>
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-title">Our Focus <em>Areas</em></h2>
+        <p class="section-sub">We work across four interconnected pillars to build resilient, self-sufficient communities in Borno State and the Lake Chad Basin.</p>
+      </div>
+      <div class="programs-grid">
+        <div class="prog-card">
+          <div class="prog-icon">📚</div>
+          <h3>Education</h3>
+          <p>Supporting access to quality education for children and youth, especially in underserved and IDP communities across Borno State.</p>
+          <span class="prog-tag">Core Program</span>
+        </div>
+        <div class="prog-card">
+          <div class="prog-icon">💻</div>
+          <h3>Digital Literacy</h3>
+          <p>Training community members in digital skills, computer literacy, and technology use for economic empowerment.</p>
+          <span class="prog-tag">Core Program</span>
+        </div>
+        <div class="prog-card">
+          <div class="prog-icon">🛠️</div>
+          <h3>Skills Acquisition</h3>
+          <p>Vocational and entrepreneurship training to reduce unemployment and build sustainable livelihoods for youth and women.</p>
+          <span class="prog-tag">Core Program</span>
+        </div>
+        <div class="prog-card">
+          <div class="prog-icon">🌍</div>
+          <h3>Environmental Conservation</h3>
+          <p>Afforestation, climate action, and environmental awareness programs in collaboration with the Great Green Wall initiative.</p>
+          <span class="prog-tag">Core Program</span>
+        </div>
+        <div class="prog-card">
+          <div class="prog-icon">🏘️</div>
+          <h3>IDP Support</h3>
+          <p>Targeted interventions for internally displaced persons — addressing food security, shelter, and livelihood challenges.</p>
+          <span class="prog-tag">Humanitarian</span>
+        </div>
+        <div class="prog-card">
+          <div class="prog-icon">🤝</div>
+          <h3>Community Mobilisation</h3>
+          <p>Grassroots engagement, community dialogue, and participatory development to strengthen social cohesion.</p>
+          <span class="prog-tag">Cross-cutting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mission Banner -->
+  <div class="mission-banner">
+    <div class="container">
+      <div class="section-tag">Our Mission</div>
+      <h2>Building a Prosperous and Resilient Borno State</h2>
+      <p>We believe that every community has the capacity to thrive. ADT exists to unlock that potential through people-centred programs, strategic partnerships, and unwavering commitment to sustainable development.</p>
+      <div class="mission-actions">
+        <button class="btn-primary" onclick="showPage('contact')">Partner With Us</button>
+        <button class="btn-outline" onclick="showPage('about')">Our Story</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: ABOUT ══════════ -->
+<div class="page" id="page-about">
+  <div class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="divider"></div>
+          <div class="section-tag">About Us</div>
+          <h2 class="section-title">Who We <em>Are</em></h2>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:20px;">Alpha Development Team (ADT) is a SMEDAN-registered community-based organisation headquartered in Maiduguri, Borno State, Nigeria. Founded with a vision of inclusive development, ADT works at the intersection of education, digital innovation, skills empowerment, and environmental sustainability.</p>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:32px;">We operate within one of Nigeria's most complex humanitarian and development landscapes — the Lake Chad Basin — where years of conflict, displacement, and climate change have created deep vulnerabilities. ADT responds with community-rooted solutions that are practical, dignified, and lasting.</p>
+          <div class="about-values">
+            <div class="value-item"><div class="value-icon">🎯</div><div><h5>Our Mission</h5><p>To foster inclusive, sustainable development through community-driven education, skills, and environmental programs.</p></div></div>
+            <div class="value-item"><div class="value-icon">🌟</div><div><h5>Our Vision</h5><p>A prosperous, resilient, and self-reliant Borno State where every individual can reach their full potential.</p></div></div>
+            <div class="value-item"><div class="value-icon">⚖️</div><div><h5>Integrity</h5><p>Transparent operations, accountable stewardship, and honest engagement with all stakeholders.</p></div></div>
+            <div class="value-item"><div class="value-icon">🤝</div><div><h5>Partnership</h5><p>Collaboration with government, civil society, and international organisations to amplify impact.</p></div></div>
+          </div>
+        </div>
+        <div class="about-img-stack">
+          <div class="about-img-bg"><div class="about-img-icon">🌱</div></div>
+          <div class="about-img-card">
+            <div class="label">Registered</div>
+            <div class="val">SMEDAN</div>
+            <div class="sub">Community-Based Organisation · Borno State</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-header center">
+        <div class="divider center"></div>
+        <div class="section-tag">Our Work</div>
+        <h2 class="section-title">Where We <em>Operate</em></h2>
+        <p class="section-sub">ADT works primarily in Borno State with programming influence extending across the Lake Chad Basin region.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🏙️</div>
+          <h4 style="font-family:'Playfair Display',serif;margin-bottom:8px;">Maiduguri</h4>
+          <p style="font-size:.875rem;color:var(--muted);">Our headquarters and primary area of operation, reaching urban and peri-urban communities.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🏕️</div>
+          <h4 style="font-family:'Playfair Display',serif;margin-bottom:8px;">IDP Communities</h4>
+          <p style="font-size:.875rem;color:var(--muted);">Working directly with internally displaced persons in camps and host communities across Borno.</p>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🌊</div>
+          <h4 style="font-family:'Playfair Display',serif;margin-bottom:8px;">Lake Chad Basin</h4>
+          <p style="font-size:.875rem;color:var(--muted);">Environmental conservation and climate action across the fragile Lake Chad Basin ecosystem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: PROGRAMS ══════════ -->
+<div class="page" id="page-programs">
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="divider"></div>
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-title">Our Programs &amp; <em>Projects</em></h2>
+        <p class="section-sub">ADT implements a portfolio of interconnected programs designed to address the root causes of vulnerability and build sustainable community resilience.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">📚</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;">Education Access Program</h3>
+            <p style="color:var(--muted);line-height:1.7;font-size:.9rem;">Increasing enrolment and retention of children in schools across Borno State. We support learning materials, teacher training, and safe learning environments for displaced and out-of-school children.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="prog-tag">Ongoing</span>
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:var(--green-pale);color:var(--muted);">Children & Youth</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">💻</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;">Digital Literacy Initiative</h3>
+            <p style="color:var(--muted);line-height:1.7;font-size:.9rem;">Training youth and community members in foundational digital skills — from basic computer use to internet safety, productivity tools, and emerging technologies — for economic participation.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="prog-tag">Ongoing</span>
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:var(--green-pale);color:var(--muted);">Youth & Adults</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🛠️</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;">Skills Acquisition &amp; Entrepreneurship</h3>
+            <p style="color:var(--muted);line-height:1.7;font-size:.9rem;">Vocational training in tailoring, ICT, construction, and agribusiness. Paired with entrepreneurship coaching to help participants launch micro-enterprises and generate sustainable income.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="prog-tag">Ongoing</span>
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:var(--green-pale);color:var(--muted);">Youth & Women</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🌱</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;">Great Green Wall — Afforestation</h3>
+            <p style="color:var(--muted);line-height:1.7;font-size:.9rem;">In partnership with the Borno State Agency for the Great Green Wall, ADT leads community tree-planting, land restoration, and climate awareness campaigns to combat desertification in the Sahel.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="prog-tag">Ongoing</span>
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:var(--green-pale);color:var(--muted);">Climate Action</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;background:var(--gold);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🌾</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;">Climate Resilience &amp; Food Security (GEF)</h3>
+            <p style="color:var(--muted);line-height:1.7;font-size:.9rem;">A proposed GEF Small Grants Programme project targeting IDP communities in Borno State with climate-smart agriculture, community gardens, and food security interventions.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:#fff8e8;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:.06em;">Proposed</span>
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:var(--green-pale);color:var(--muted);">IDPs · Food Security</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;gap:24px;align-items:flex-start;">
+          <div style="width:60px;height:60px;min-width:60px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🤝</div>
+          <div>
+            <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;">Community Mobilisation</h3>
+            <p style="color:var(--muted);line-height:1.7;font-size:.9rem;">Grassroots community dialogue, civic engagement, and social cohesion activities that strengthen local institutions and empower communities to drive their own development.</p>
+            <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="prog-tag">Ongoing</span>
+              <span style="font-size:.75rem;padding:4px 12px;border-radius:50px;background:var(--green-pale);color:var(--muted);">Cross-cutting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: TEAM ══════════ -->
+<div class="page" id="page-team">
+  <div class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="divider center"></div>
+        <div class="section-tag">The People</div>
+        <h2 class="section-title">Meet Our <em>Team</em></h2>
+        <p class="section-sub">ADT is driven by a passionate team of professionals committed to community development, sustainability, and human dignity in Borno State.</p>
+      </div>
+      <div class="team-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="team-card">
+          <div class="team-avatar">👨‍💼</div>
+          <div class="team-info">
+            <h4>Abbas Bulama Yerima</h4>
+            <div class="role">Chief Executive Officer</div>
+            <p>Leads ADT's strategic vision and institutional direction, overseeing all programs and external partnerships across Borno State.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍🔬</div>
+          <div class="team-info">
+            <h4>Aliyu Mustapha Abulfathi</h4>
+            <div class="role">Project Coordinator</div>
+            <p>Manages program design, proposal development, and operational coordination. B.Sc. Petroleum Chemistry (UNIMAID), certified in HSE and Project Management.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">📋</div>
+          <div class="team-info">
+            <h4>Muhammad Kabir Oluwole</h4>
+            <div class="role">Secretary</div>
+            <p>Oversees organisational administration, record-keeping, correspondence, and governance documentation for ADT.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">💻</div>
+          <div class="team-info">
+            <h4>Muhammad Shettima Mustapha</h4>
+            <div class="role">IT Officer</div>
+            <p>Manages ADT's technology infrastructure, digital systems, and provides technical support for programs and operations.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">💰</div>
+          <div class="team-info">
+            <h4>Haruna Abubakar Alkali</h4>
+            <div class="role">Treasurer &amp; Media</div>
+            <p>Oversees ADT's financial management, budgeting, and reporting, while also coordinating media and communications activities.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👩‍💼</div>
+          <div class="team-info">
+            <h4>Sa'adatu Sani Maigana</h4>
+            <div class="role">Human Resources Officer</div>
+            <p>Manages HR processes including recruitment, staff welfare, volunteer coordination, and capacity building for ADT's team.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">📊</div>
+          <div class="team-info">
+            <h4>Khadijah</h4>
+            <div class="role">Program Manager</div>
+            <p>Leads program implementation, monitoring and evaluation, and ensures ADT's interventions deliver measurable impact for communities.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:60px;background:var(--green-pale);border-radius:20px;padding:48px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:16px;">🙌</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:12px;">Join Our Team</h3>
+        <p style="color:var(--muted);max-width:500px;margin:0 auto 24px;line-height:1.7;">We are always looking for passionate volunteers, interns, and professionals to join ADT's mission. Whether in programs, communications, finance, or field work — there's a place for you.</p>
+        <button class="btn-primary" onclick="showPage('contact')">Get Involved</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: GALLERY ══════════ -->
+<div class="page" id="page-gallery">
+  <div class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="divider center"></div>
+        <div class="section-tag">Visual Story</div>
+        <h2 class="section-title">Our Work in <em>Pictures</em></h2>
+        <p class="section-sub">A glimpse into ADT's programs, community activities, and impact across Borno State.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:16px;">
+        <div style="grid-row:span 2;background:linear-gradient(135deg,#1a6b3c,#2d9057);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;cursor:pointer;transition:.3s;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform=''">
+          <div style="font-size:3.5rem;">🌱</div><div style="font-weight:600;font-size:.95rem;">Tree Planting Drive</div><div style="font-size:.8rem;opacity:.7;">Maiduguri 2024</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#c9962a,#f0c04a);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;cursor:pointer;transition:.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform=''">
+          <div style="font-size:2.5rem;">💻</div><div style="font-weight:600;font-size:.9rem;">Digital Training</div><div style="font-size:.78rem;opacity:.8;">Youth Workshop</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#1c4d7a,#2a77be);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;cursor:pointer;transition:.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform=''">
+          <div style="font-size:2.5rem;">📚</div><div style="font-weight:600;font-size:.9rem;">Education Outreach</div><div style="font-size:.78rem;opacity:.8;">IDP Communities</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#5c3a8a,#8b5fb5);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;cursor:pointer;transition:.3s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform=''">
+          <div style="font-size:2.5rem;">🛠️</div><div style="font-weight:600;font-size:.9rem;">Skills Training</div><div style="font-size:.78rem;opacity:.8;">Vocational Program</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#8b4513,#c0632a);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;cursor:pointer;transition:.3s;grid-row:span 2;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform=''">
+          <div style="font-size:3rem;">🤝</div><div style="font-weight:600;font-size:.95rem;">Community Dialogue</div><div style="font-size:.8rem;opacity:.7;">Grassroots Engagement</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#1a6b3c,#0e4025);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;cursor:pointer;transition:.3s;grid-column:span 2;" onmouseover="this.style.transform='scale(1.01)'" onmouseout="this.style.transform=''">
+          <div style="font-size:2.5rem;">🌊</div><div style="font-weight:600;font-size:.95rem;">Lake Chad Basin Conservation</div><div style="font-size:.8rem;opacity:.7;">Environmental Program · Borno State</div>
+        </div>
+      </div>
+      <div style="margin-top:40px;text-align:center;padding:32px;background:var(--cream);border-radius:16px;border:1px solid var(--border);">
+        <p style="color:var(--muted);font-size:.9rem;">📸 Want to contribute photos or media from ADT activities? <strong style="color:var(--green);cursor:pointer;" onclick="showPage('contact')">Contact us</strong> to share your images.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: PARTNERS ══════════ -->
+<div class="page" id="page-partners">
+  <div class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="divider center"></div>
+        <div class="section-tag">Collaboration</div>
+        <h2 class="section-title">Partners &amp; <em>Supporters</em></h2>
+        <p class="section-sub">ADT works in partnership with government agencies, international organisations, and civil society to maximise impact and reach.</p>
+      </div>
+      <div style="margin-bottom:60px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border);">Government Partners</h3>
+        <div class="partners-grid">
+          <div class="partner-card"><div class="partner-logo">🏛️</div><div class="partner-name">Borno State Govt.</div><div class="partner-type">State Government</div></div>
+          <div class="partner-card"><div class="partner-logo">🌱</div><div class="partner-name">Great Green Wall Agency</div><div class="partner-type">Borno State Agency</div></div>
+          <div class="partner-card"><div class="partner-logo">🏢</div><div class="partner-name">SMEDAN</div><div class="partner-type">Federal Registration Body</div></div>
+          <div class="partner-card"><div class="partner-logo">🌾</div><div class="partner-name">Ministry of Env. & Climate</div><div class="partner-type">Borno State Ministry</div></div>
+        </div>
+      </div>
+      <div style="margin-bottom:60px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border);">International Organisations</h3>
+        <div class="partners-grid">
+          <div class="partner-card"><div class="partner-logo">🌍</div><div class="partner-name">African Union (ECOSOCC)</div><div class="partner-type">Continental Body</div></div>
+          <div class="partner-card"><div class="partner-logo">🌐</div><div class="partner-name">UNFCCC</div><div class="partner-type">UN Climate Body</div></div>
+          <div class="partner-card"><div class="partner-logo">💚</div><div class="partner-name">GEF Small Grants</div><div class="partner-type">Funding Partner</div></div>
+          <div class="partner-card"><div class="partner-logo">🤝</div><div class="partner-name">Potential Partners</div><div class="partner-type">Open for Collaboration</div></div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:20px;padding:60px;text-align:center;color:#fff;">
+        <div style="font-size:2.5rem;margin-bottom:20px;">🌟</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:16px;">Become a Partner</h3>
+        <p style="opacity:.85;max-width:550px;margin:0 auto 32px;line-height:1.7;">Whether you are a donor, implementing partner, government body, or corporate sponsor — we welcome collaboration that aligns with our mission of inclusive development in Borno State.</p>
+        <button style="background:#fff;color:var(--green);padding:14px 36px;border-radius:10px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''" onclick="showPage('contact')">Get in Touch</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: NEWS ══════════ -->
+<div class="page" id="page-news">
+  <div class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="divider center"></div>
+        <div class="section-tag">Latest Updates</div>
+        <h2 class="section-title">News &amp; <em>Stories</em></h2>
+        <p class="section-sub">Updates, reports, and stories from ADT's work across Borno State and the Lake Chad Basin.</p>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-img">🌱</div>
+          <div class="news-body">
+            <span class="news-category">Climate Action</span>
+            <div class="news-date">📅 June 2025</div>
+            <h3>ADT Joins Borno State's Great Green Wall Drive</h3>
+            <p>Alpha Development Team formally partners with the Borno State Agency for the Great Green Wall, launching a community-based afforestation initiative targeting degraded lands in the Sahel.</p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img" style="background:linear-gradient(135deg,#c9962a,#f0c04a);">🌍</div>
+          <div class="news-body">
+            <span class="news-category">Institutional</span>
+            <div class="news-date">📅 May 2025</div>
+            <h3>ADT Applies for African Union ECOSOCC Membership</h3>
+            <p>ADT submits its application for membership in the African Union's Economic, Social and Cultural Council, strengthening its continental advocacy and networking capacity.</p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img" style="background:linear-gradient(135deg,#1c4d7a,#2a77be);">💻</div>
+          <div class="news-body">
+            <span class="news-category">Programs</span>
+            <div class="news-date">📅 April 2025</div>
+            <h3>New Digital Literacy Training Cohort Launched in Maiduguri</h3>
+            <p>ADT commences a new cohort of its Digital Literacy Initiative, training over 50 youth from IDPs and host communities in foundational digital skills.</p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img" style="background:linear-gradient(135deg,#5c3a8a,#8b5fb5);">🌾</div>
+          <div class="news-body">
+            <span class="news-category">Funding</span>
+            <div class="news-date">📅 March 2025</div>
+            <h3>ADT Submits GEF Small Grants Proposal for Climate Resilience</h3>
+            <p>A comprehensive project proposal addressing climate resilience and food security for IDP communities in Borno State is submitted to the GEF Small Grants Programme.</p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img" style="background:linear-gradient(135deg,#8b4513,#c0632a);">🛠️</div>
+          <div class="news-body">
+            <span class="news-category">Skills</span>
+            <div class="news-date">📅 February 2025</div>
+            <h3>Skills Acquisition Program Graduates First Cohort</h3>
+            <p>ADT celebrates the graduation of its first cohort of trainees from the skills acquisition and entrepreneurship program, with participants launching small businesses in Maiduguri.</p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img" style="background:linear-gradient(135deg,#1a6b3c,#0e4025);">📋</div>
+          <div class="news-body">
+            <span class="news-category">Report</span>
+            <div class="news-date">📅 January 2025</div>
+            <h3>ADT Publishes Annual Report 2024</h3>
+            <p>ADT releases its 2024 Annual Report documenting program outcomes, financial performance, and the organisation's growing impact across Borno State.</p>
+            <span class="read-more">Read more →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: CONTACT ══════════ -->
+<div class="page" id="page-contact">
+  <div class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="divider"></div>
+          <div class="section-tag">Get In Touch</div>
+          <h2 class="section-title">Contact <em>ADT</em></h2>
+          <div class="contact-info">
+            <p>Reach out to us for partnerships, program enquiries, volunteer opportunities, or media requests. We are always open to collaboration that advances community development in Borno State.</p>
+          </div>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div><h5>Address</h5><p>Maiduguri, Borno State, Nigeria</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <div><h5>Email</h5><p>alphadevteam25@gmail.com</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div><h5>Phone</h5><p>+234 806 449 9868<br/>+234 802 960 2379</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🏢</div>
+              <div><h5>Registration</h5><p>SMEDAN-Registered CBO · Borno State</p></div>
+            </div>
+          </div>
+          <div style="margin-top:40px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a style="width:42px;height:42px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;cursor:pointer;transition:.2s;border:1px solid var(--border);" title="Facebook">📘</a>
+            <a style="width:42px;height:42px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;cursor:pointer;transition:.2s;border:1px solid var(--border);" title="Twitter/X">🐦</a>
+            <a href="https://www.linkedin.com/company/alpha-development-team25/" target="_blank" style="width:42px;height:42px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;cursor:pointer;transition:.2s;border:1px solid var(--border);" title="LinkedIn">💼</a>
+            <a style="width:42px;height:42px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;cursor:pointer;transition:.2s;border:1px solid var(--border);" title="Instagram">📸</a>
+          </div>
+        </div>
+        <div class="contact-form" id="contactFormWrapper">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:24px;">Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="e.g. Aliyu"/></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="e.g. Musa"/></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+          <div class="form-group"><label>Organisation (optional)</label><input type="text" placeholder="Your organisation name"/></div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select>
+              <option>Partnership Enquiry</option>
+              <option>Volunteer / Internship</option>
+              <option>Program Information</option>
+              <option>Donation / Funding</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell us more about your enquiry..."></textarea></div>
+          <button class="form-submit" onclick="submitForm()">Send Message</button>
+          <div class="form-success" id="formSuccess">✅ Thank you! Your message has been sent. We'll get back to you soon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <div class="footer-brand-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <span class="footer-brand-name">Alpha Development Team</span>
+        </div>
+        <p>A SMEDAN-registered community-based organisation driving education, digital literacy, skills acquisition, and environmental conservation in Borno State, Nigeria.</p>
+        <div class="footer-social">
+          <a title="Facebook">📘</a>
+          <a title="Twitter">🐦</a>
+          <a href="https://www.linkedin.com/company/alpha-development-team25/" target="_blank" title="LinkedIn">💼</a>
+          <a title="Instagram">📸</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('about')">About ADT</a></li>
+          <li><a onclick="showPage('programs')">Our Programs</a></li>
+          <li><a onclick="showPage('team')">Our Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a onclick="showPage('gallery')">Gallery</a></li>
+          <li><a onclick="showPage('news')">News &amp; Stories</a></li>
+          <li><a onclick="showPage('partners')">Partners</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a>Maiduguri, Borno State</a></li>
+          <li><a>Nigeria</a></li>
+          <li><a>alphadevteam25@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Alpha Development Team (ADT). All rights reserved.</p>
+      <div class="footer-badges">
+        <span class="badge">SMEDAN Registered</span>
+        <span class="badge">Borno State, Nigeria</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a,.mobile-menu a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  const navEl = document.getElementById('nav-'+name);
+  if(navEl) navEl.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+function submitForm(){
+  document.querySelector('.form-submit').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30);
+});
+</script>
+</body>
+</html>
